@@ -4,7 +4,9 @@ export const __global__ = createContext(null);
 export const __local__ = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dataPenjualan, setDataPenjualan] = useState([]);
-  const [xyz, setXyz] = useState([])
+  const [xyz, setXyz] = useState([]);
+  const [ongkir, setOngkir] = useState(0);
+  const [diskon, setDiskon] = useState(0);
   const [formDataBarang, setFormDataBarang] = useState({
     nama_barang: "",
     kode_item: "",
@@ -23,7 +25,7 @@ export const __local__ = ({ children }) => {
     harga_bruto: 0
   })
   return (
-    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz }}>
+    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon }}>
       {children}
     </__global__.Provider>
   )

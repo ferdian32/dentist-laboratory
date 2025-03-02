@@ -30,22 +30,25 @@ const Invoice = () => {
       alert('No Invoice Dibutuhkan');
     }
     let f = results.find((d) => d?.no_invoice === no);
+    let grandTotal = xyz.reduce((acc, crn) => acc + crn.harga_bruto, 0);
     try {
-      console.log(xyz);
-      console.log(no);
-      console.log(f);
-      console.log(results);
-      // const { tgl_invoice, no_invoice, nama_customer, alamat, pasien } = f;
-      // const data = {
-      //   tgl_invoice,
-      //   no_invoice,
-      //   nama_customer,
-      //   alamat,
-      //   pasien
-      // };
 
-      // const response = await __httpClient__.post(import.meta.env.VITE_BASE_URL_REKAP, data);
-      // return response.json;
+      const { tgl_invoice, no_invoice, nama_customer, alamat, pasien } = f;
+      const data = {
+        tgl_invoice,
+        no_invoice,
+        nama_customer,
+        alamat,
+        pasien,
+        grandTotal
+      };
+
+      const response = await __httpClient__.post(import.meta.env.VITE_BASE_URL_KRP, data);
+      if (response) {
+        alert('data berhasil di rekap');
+        window.location.href = "/rekapPenjualan"
+      }
+      return response.json;
     } catch (error) {
       console.log(error);
     }
