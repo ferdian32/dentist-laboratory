@@ -20,7 +20,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
         )
       })}
       <tr >
-        <td colSpan={5} className=" border border-black relative" >
+        <td colSpan={5} className=" border-2 border-2-black relative" >
           <div className="flex justify-between px-10 absolute top-0 w-full">
 
             <div>
@@ -32,24 +32,24 @@ export function Tbody({ xyz, Sbt, grndT }) {
               <p className="my-5">Nama</p>
             </div>
           </div>
-          <div className="border border-black absolute bottom-0 w-full px-3 italic">
+          <div className="border-2 border-2-black absolute bottom-0 right-0 px-10 w-full  italic">
             <h3>Terlampir: </h3>
           </div>
         </td>
-        <td colSpan={2} className=" border border-black ">
+        <td colSpan={2} className=" border-2 border-2-black ">
           <div className="grid grid-cols-2">
-            <div className="py-2 px-3 border border-black">
+            <div className="py-2 px-3 border-2 border-2-black">
               Subtotal
             </div>
-            <div className="py-2 px-3 border border-black">
+            <div className="py-2 px-3 border-2 border-2-black">
               {Sbt}
             </div>
           </div>
           <div className="grid grid-cols-2">
-            <div className="py-2 px-3 border border-black">
+            <div className="py-2 px-3 border-2 border-2-black">
               Ongkos Kirim
             </div>
-            <div className="py-2 px-3 border border-black">
+            <div className="py-2 px-3 border-2 border-2-black">
               <Input type="number" name="ongkir" id="ongkir" className="w-20 rounded-md py-2 px-3 outline-0" value={ongkir} onChange={(event) => setOngkir(event.target.value)}></Input>
             </div>
 
@@ -59,7 +59,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
               Diskon
             </div>
             <div className="py-2 px-3 border-2 border-2-black">
-              <label htmlFor="">
+              <label htmlFor="diskon">
 
                 <Input type="number" name="diskon" className="w-20 rounded-md py-2 px-3 outline-0" id="diskon" value={diskon} onChange={(event) => setDiskon(event.target.value)} />
                 %

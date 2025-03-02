@@ -2,13 +2,17 @@ import { columnPrintInvoice } from "../lib/data";
 import { useRef, useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { __global__ } from "../__config__";
+import Button from "../elements/button";
 import { __httpClient__ } from "../lib/http";
 import { Tbody } from "../fragments/tbody";
 import { Thead } from "../fragments/thead";
+import { useReactToPrint } from "react-to-print";
 
 export default function PrintInvoice() {
   const { xyz, setXyz, ongkir, diskon } = useContext(__global__);
   const [nvc, setNvc] = useState([]);
+
+  const contentRef = useRef()
   const { no_invoice } = useParams();
   useEffect(() => {
     const getData = async () => {
@@ -36,14 +40,16 @@ export default function PrintInvoice() {
     getData();
   }, []);
   const Sbt = xyz.reduce((x, y) => x + y.harga_bruto, 0);
-  let grndT = Number(Sbt) + Number(ongkir) - (Number(Sbt) * Number(diskon) / 100);
-  const element = useRef()
+  let grndT = (Number(Sbt) + Number(ongkir)) - (Number(Sbt) / 100 * Number(diskon));
+
   const HandlePrint = () => {
-    window.print();
-  };
+    console.log('window is called')
+    window.print()
+
+  }
   return (
-    <section className="w-[800px]  px-3  overflow-hidden" >
-      <div ref={element}>
+    <section className="lg:w-[800px] md:w-[800px] w-full px-3  overflow-hidden" >
+      <div ref={contentRef}>
 
         <div className="grid grid-cols-2   p-5">
           <div>
@@ -64,12 +70,20 @@ export default function PrintInvoice() {
             </div>
           </div>
           <div className="px-3 text-end ">
-            <h1 className=" text-4xl font-bold">Invoice</h1>
-            <ul className="my-3" >
-              <li className="text-sm">Tanggal Invoice  : <strong>{nvc.tgl_invoice ? new Date(nvc.tgl_invoice).toLocaleDateString() : 'tidak ada tanggal'}</strong>
+            <ul className="" >
+              <li className="text-sm py-2">Tanggal Invoice  : <strong>{nvc.tgl_invoice ? new Date(nvc.tgl_invoice).toLocaleDateString() : 'tidak ada tanggal'}</strong>
               </li>
-              <li className="text-sm">No Invoice  : <strong>{nvc.no_invoice}</strong>
+              <li className="text-sm py-2">
+                Tanggal Jatuh Tempo:
+                <strong>
+                  {nvc.tgl_invoice
+                    ? new Date(new Date(nvc.tgl_invoice).setDate(new Date(nvc.tgl_invoice).getDate() + 30)).toLocaleDateString()
+                    : 'tidak ada tanggal'}
+                </strong>
               </li>
+              <li className="text-sm py-2">No Invoice  : <strong>{nvc.no_invoice}</strong>
+              </li>
+
             </ul>
           </div>
         </div >
@@ -78,9 +92,9 @@ export default function PrintInvoice() {
           <Tbody xyz={xyz} Sbt={Sbt} grndT={grndT} ></Tbody>
         </table>
       </div >
-      <button className={`py-1 px-3 bg-black text-slate-50 mt-3 rounded-sm cursor-pointer `} onClick={HandlePrint}>
+      <Button title="print invoice" className={`py-1 px-3 bg-black  text-slate-50 mt-3 rounded-sm cursor-pointer absolute no-print `} onClick={HandlePrint}>
         Print Invoice
-      </button>
+      </Button>
     </section >
   )
 }
