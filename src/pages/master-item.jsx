@@ -10,13 +10,15 @@ export default function MasterItem() {
   const [results, setResults] = useState("")
   useEffect(() => {
     const get = async () => {
-      try {
-        const response = await __httpClient__.get(import.meta.env.VITE_BASE_URL_BRG);
-        const json = response.data
-        setResults(json.data)
-      } catch (error) {
-        consolle.log(error);
-      }
+      await __httpClient__.get(import.meta.env.VITE_BASE_URL_BRG)
+        .then((results) => {
+
+          const json = results.data
+          setResults(json.data)
+        }).catch((err) => {
+          console.log(err)
+        });
+
     };
     get();
   }, [])

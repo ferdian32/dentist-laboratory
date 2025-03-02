@@ -4,7 +4,7 @@ export function Tbody({ xyz, Sbt, ongkir, diskon, grndT }) {
       {xyz && xyz.map((zyx, index) => {
         return (
 
-          <tr>
+          <tr key={index}>
             <td className="py-2 px-3 border-2 border-2-black">{index + 1}</td>
             <td className="py-2 px-3 border-2 border-2-black">{zyx.keterangan}</td>
             <td className="py-2 px-3 border-2 border-2-black">{zyx.nama_barang}</td>

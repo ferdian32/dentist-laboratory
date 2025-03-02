@@ -1,26 +1,38 @@
+import { useReactToPrint } from "react-to-print";
 import { columnPrintInvoice } from "../lib/data";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { __global__ } from "../__config__";
 import { __httpClient__ } from "../lib/http";
 import { Tbody } from "../fragments/tbody";
-import { Thead } from "../fragments/__thead__";
+import { Thead } from "../fragments/thead";
+
 export default function PrintInvoice() {
+  const {xyz,setXyz} = useContext(__global__);
   const [nvc, setNvc] = useState([]);
-  const [xyz, setXyz] = useState([]);
   const { no_invoice } = useParams();
   useEffect(() => {
     const getData = async () => {
-      const response = await __httpClient__.get(import.meta.env.VITE_BASE_URL_NVC);
-      const fnd = response?.data.data.find((f) => f?.no_invoice === no_invoice);
-      setNvc(fnd);
+      await __httpClient__.get(import.meta.env.VITE_BASE_URL_NVC)
+        .then((results) => {
+          const fnd = results.data.data.find((f) => f?.no_invoice === no_invoice);
+          setNvc(fnd);
+        }).catch((err) => {
+          console.log(err);
+        });
     }
     getData();
   }, []);
   useEffect(() => {
     const getData = async () => {
-      const response = await __httpClient__.get(import.meta.env.VITE_BASE_URL_PNJL);
-      const fnd = response.data.data.filter((f) => f?.no_invoice === no_invoice);
-      setXyz(fnd);
+      await __httpClient__.get(import.meta.env.VITE_BASE_URL_PNJL)
+        .then((results) => {
+          const fnd = results.data.data.filter((f) => f?.no_invoice === no_invoice);
+          setXyz(fnd);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
     getData();
   }, []);
@@ -30,7 +42,8 @@ export default function PrintInvoice() {
   let grndT = Sbt - ongkir - diskon;
   const element = useRef()
   const HandlePrint = () => {
-    window.print();
+    window.print()
+
   }
   return (
     <section className="w-full max-w-[600px]   overflow-hidden" >
@@ -69,7 +82,7 @@ export default function PrintInvoice() {
           <Tbody xyz={xyz} Sbt={Sbt} ongkir={ongkir} diskon={diskon} grndT={grndT} ></Tbody>
         </table>
       </div>
-      <button className={`py-1 px-3 bg-black text-slate-50 mt-3 rounded-sm cursor-pointer `} onClick={HandlePrint}>
+      <button className={`py-1 px-3 bg-black text-slate-50 mt-3 rounded-sm cursor-pointer `} onClick={() => HandlePrint()}>
         Print Invoice
       </button>
     </section >

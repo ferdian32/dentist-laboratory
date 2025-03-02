@@ -2,7 +2,6 @@ import { Fragment, useContext } from "react";
 import { __global__ } from "../__config__";
 import { __httpClient__ } from "../lib/http";
 const FormGroupPenjualan = ({ setFormData, formData, invoice }) => {
-  console.log(formData);
   const { setDataPenjualan, dataPenjualan } = useContext(__global__);
   const ChangeEventHandler = (event) => {
     setFormData((prev) => ({
@@ -11,7 +10,7 @@ const FormGroupPenjualan = ({ setFormData, formData, invoice }) => {
     }))
   }
   const addData = () => {
-    const { no_invoice,keterangan, nama_barang, qty, harga_satuan } = formData;
+    const { no_invoice, keterangan, nama_barang, qty, harga_satuan } = formData;
     const data = {
       no_invoice,
       keterangan,
@@ -22,11 +21,10 @@ const FormGroupPenjualan = ({ setFormData, formData, invoice }) => {
     };
 
     const newData = [...dataPenjualan, data];
-    console.log(newData)
     setDataPenjualan(newData);
     if (newData) {
 
-      setFormData({ no_invoice: "",keterangan, nama_barang: "", quantity: 0, harga_satuan: 0, harga_bruto: 0 })
+      setFormData({ no_invoice: "", keterangan, nama_barang: "", quantity: 0, harga_satuan: 0, harga_bruto: 0 })
     }
   };
 
@@ -49,11 +47,11 @@ const FormGroupPenjualan = ({ setFormData, formData, invoice }) => {
       </div>
       <div className="flex flex-col">
         <label htmlFor="nama_barang">Nama Barang</label>
-        <input required onChange={ChangeEventHandler} value={formData?.nama_barang} className="border border-black px-3" type="text" name="nama_barang" id="nama_barang"/>
+        <input required onChange={ChangeEventHandler} value={formData?.nama_barang} className="border border-black px-3" type="text" name="nama_barang" id="nama_barang" />
       </div>
       <div className="flex flex-col">
         <label htmlFor="qty">Quantity</label>
-        <input required onChange={ChangeEventHandler} value={formData?.number} className="border border-black px-3" type="number" name="qty" id="qty"/>
+        <input required onChange={ChangeEventHandler} value={formData?.number} className="border border-black px-3" type="number" name="qty" id="qty" />
       </div>
       <div className="flex flex-col">
         <label htmlFor="harga_satuan">harga satuan</label>
