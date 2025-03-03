@@ -1,10 +1,12 @@
 import { columnRekap } from "../lib/data";
-import Button from "../elements/button";
 import TableRekap from "../components/tableRekap";
 import { useEffect, useState } from "react";
 import { __httpClient__ } from "../lib/http";
 export default function RekapPenjualan() {
   const [rekap, setRekap] = useState([]);
+  console.log(rekap);
+  console.log('change commit');
+  console.log('change commit');
   useEffect(() => {
     const get = async () => {
       try {
@@ -21,7 +23,7 @@ export default function RekapPenjualan() {
       }
     }
     get();
-  }, [])
+  }, []);
 
   return (
     <section className="bg-sky-300 w-full h-screen py-8 px-4">

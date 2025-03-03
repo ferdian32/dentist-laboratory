@@ -32,7 +32,6 @@ const Invoice = () => {
     let f = results.find((d) => d?.no_invoice === no);
     let grandTotal = xyz.reduce((acc, crn) => acc + crn.harga_bruto, 0);
     try {
-
       const { tgl_invoice, no_invoice, nama_customer, alamat, pasien } = f;
       const data = {
         tgl_invoice,
