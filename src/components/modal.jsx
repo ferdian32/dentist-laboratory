@@ -1,26 +1,31 @@
 import { __global__ } from "../__config__";
 import { useContext } from "react";
+import Swal from "sweetalert2";
 import FormGroup from "../fragments/FormGroup";
 import { __httpClient__ } from "../lib/http";
 const ModalElement = () => {
   const { setIsOpen, isOpen, formDataBarang } = useContext(__global__);
   const handleForm = async (event) => {
     event.preventDefault();
-    const { nama_barang, kode_item, satuan, harga_beli, harga_jual, supplier, no_telp } = formDataBarang;
+    const { nama_barang, kode_item, satuan, harga_jual } = formDataBarang;
     const data = {
       nama_barang,
       kode_item,
       satuan,
-      harga_beli,
       harga_jual,
-      supplier,
-      no_telp
     }
     try {
-      const response = await __httpClient__.post('/barang', data);
+      const response = await __httpClient__.post(import.meta.env.VITE_BASE_URL_BRG, data);
       if (response) {
-        alert('success menambahkan data');
-        window.location.href = '/';
+        Swal.fire({
+          title: "Success!",
+          text: "Data has been successfully confirmed!",
+          icon: "success"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '/master-item'
+          }
+        });
       }
     } catch (error) {
       console.error('Error adding data:', error);
@@ -29,7 +34,7 @@ const ModalElement = () => {
   }
   return (
     <div
-      className={`w-md  h-[550px] fixed top-3 left-4/12 ${isOpen ? "block" : "hidden"
+      className={`w-md z-1 bg-sky-500  h-[550px] fixed top-3 left-4/12 ${isOpen ? "block" : "hidden"
         } bg-slate-50 px-3 py-4 rounded-md `}
     >
       <div className="relative">

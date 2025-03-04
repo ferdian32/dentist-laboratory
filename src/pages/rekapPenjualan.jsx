@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import { __httpClient__ } from "../lib/http";
 export default function RekapPenjualan() {
   const [rekap, setRekap] = useState([]);
-  console.log(rekap);
-  console.log('change commit');
-  console.log('change commit');
   useEffect(() => {
     const get = async () => {
       try {

@@ -7,6 +7,7 @@ import MasterItem from './pages/master-item.jsx';
 import { __local__ } from './__config__/index.jsx';
 import Invoice from './pages/invoice.jsx';
 import AddDataPenjualan from './pages/addDataPenjualan.jsx';
+import EditDataBarang from './pages/editDataBarang.jsx';
 import RekapPenjualan from './pages/rekapPenjualan.jsx';
 import PrintInvoice from './pages/printInvoice.jsx';
 const browserRouter = createBrowserRouter([
@@ -17,6 +18,10 @@ const browserRouter = createBrowserRouter([
   {
     path: '/master-item',
     element: <MasterItem></MasterItem>
+  },
+  {
+    path: '/editDataBarang/:id',
+    element: <EditDataBarang></EditDataBarang>
   },
   {
     path: '/invoice',

@@ -11,10 +11,7 @@ export const __local__ = ({ children }) => {
     nama_barang: "",
     kode_item: "",
     satuan: "",
-    harga_beli: "",
     harga_jual: "",
-    supplier: "",
-    no_telp: ""
   });
   const [formDataPenjualan, setFormDataPenjualan] = useState({
     no_invoice: "",

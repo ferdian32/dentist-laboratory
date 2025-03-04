@@ -3,20 +3,21 @@
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-
   margin: 0;
 }
-
-/* Untuk Firefox */
 
 input[type="number"] {
   -moz-appearance: textfield;
 }
 
+
 .card {
   padding: 2em;
 }
 
+th {
+  border: 1px solid white;
+}
 
 @media print {
   .no-print {
