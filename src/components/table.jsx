@@ -6,7 +6,7 @@ export default function Table({ column, rows }) {
   const navigate = useNavigate();
 
   const obfu_2x = async (id) => {
-    const result = await Swal.fire({
+    const d2xa = await Swal.fire({
       title: "Are you Sure?",
       text: "You won't be able to revert this!",
       icon: "warning",
@@ -15,11 +15,10 @@ export default function Table({ column, rows }) {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
     });
-
-    if (result.isConfirmed) {
+    if (d2xa.isConfirmed) {
       try {
         const response = await __httpClient__.delete(`${import.meta.env.VITE_BASE_URL_BRG}/${id}`);
-        if (response) {
+        if (response.status === 200) {
           Swal.fire({
             title: "Deleted!",
             text: "Your data has been deleted.",
@@ -27,6 +26,7 @@ export default function Table({ column, rows }) {
           });
           window.location.href = "/master-item";
         }
+        return response;
       } catch (error) {
         Swal.fire({
           title: "Error!",
@@ -66,8 +66,8 @@ export default function Table({ column, rows }) {
                 <td>{row.satuan}</td>
                 <td>{row.harga_jual}</td>
                 <td className="flex gap-x-3 p-3">
-                  <Button onClick={() => obfu_2x(row.kode_item)} className="bg-rose-500 text-slate-50 py-2 px-3 rounded-md cursor-pointer" title="hapus data"></Button>
-                  <Button onClick={() => navigate(`/editDataBarang/${row.kode_item}`)} className="bg-orange-500 text-slate-50 py-2 px-3 rounded-md cursor-pointer" title="edit data"></Button>
+                  <Button onClick={() => obfu_2x(row.id)} className="bg-rose-500 text-slate-50 py-2 px-3 rounded-md cursor-pointer" title="hapus data"></Button>
+                  <Button onClick={() => navigate(`/editDataBarang/${row.id}`)} className="bg-orange-500 text-slate-50 py-2 px-3 rounded-md cursor-pointer" title="edit data"></Button>
                 </td>
               </tr>
             );

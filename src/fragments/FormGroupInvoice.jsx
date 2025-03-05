@@ -1,12 +1,11 @@
 
 const FormGroupInvoice = ({ setFormData }) => {
-
-  const changeEvent = (event) => {
-    setFormData((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.value
-    }))
-  }
+// const changeEventHandler = (event) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [event.target.name]: event.target.value
+  //   }))
+  // }
   return (
     <div>
       <input

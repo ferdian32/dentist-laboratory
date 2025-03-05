@@ -4,13 +4,7 @@ import FormGroupInvoice from "../fragments/FormGroupInvoice";
 import { __httpClient__ } from "../lib/http";
 import { nanoid } from "nanoid";
 export default function ModalInvoice() {
-  const { isOpen, setIsOpen } = useContext(__global__);
-  const [formDataInvoice, setFormDataInvoice] = useState({
-    nama_customer: "",
-    alamat: "",
-    pasien: "",
-    keterangan: "",
-  });
+  const { isOpen, setIsOpen, } = useContext(__global__);
   const handleForm = (event) => {
     event.preventDefault();
     const { nama_customer, alamat, pasien, keterangan } = formDataInvoice;
@@ -23,7 +17,7 @@ export default function ModalInvoice() {
       keterangan
     }
     try {
-      const response = __httpClient__.post('/invoice', data);
+      const response = __httpClient__.post(import.meta.env.VITE_BASE_URL_NVC, data);
       if (response) {
         alert('success!!!!');
         window.location.href = '/invoice'

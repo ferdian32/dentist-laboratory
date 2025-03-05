@@ -11,7 +11,7 @@ const TableInvoice = ({ column, nvc }) => {
     };
     get();
   }, []);
-  const handleDeleteButton = async (no_invoice) => {
+  const handleDeleteButton = async (no) => {
     try {
       const result = await Swal.fire({
         title: "Are you Sure?",
@@ -25,9 +25,20 @@ const TableInvoice = ({ column, nvc }) => {
 
       if (result.isConfirmed) {
         try {
-          const response = await __httpClient__.delete(`${import.meta.env.VITE_BASE_URL_NVC}/${no_invoice}`);
+          const response = await fetch(`http://localhost:3000/invoice/${no}`, {
+            method: 'DELETE',
+          });
           console.log(response);
-
+          if (response.status === 200 || response.status === 204) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your data has been deleted.",
+              icon: "success"
+            });
+            setTimeout(() => {
+              window.location.href = "/invoice";
+            }, 1000);
+          }
         } catch (error) {
           console.error("Delete Error:", error);
           Swal.fire({

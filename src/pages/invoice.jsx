@@ -45,7 +45,6 @@ const Invoice = () => {
       const _pxzo = results.find((_) => _.no_invoice === no);
       const { tgl_invoice, no_invoice, nama_customer, alamat, pasien } = _pxzo
       const p2_ok = xyz.filter((_) => _.no_invoice === no);
-      console.log(p2_ok);
       let grandTotal = p2_ok.reduce((ac, cr) => ac + cr.harga_bruto, 0);
       const data = {
         tgl_invoice,
@@ -62,7 +61,6 @@ const Invoice = () => {
           text: "Berhasil menambahkan data rekap?",
           icon: "success"
         });
-
         window.location.href = `/print/${no}`
       }
       return rs;
@@ -73,13 +71,13 @@ const Invoice = () => {
   return (
     <Fragment>
       <Navbar></Navbar>
-      <section className="bg-sky-300 w-full h-screen overflow-hidden py-8 px-4">
+      <section className="bg-sky-300 h-screen w-full overflow-hidden py-8 px-4">
         <div className="font-bold">
           <h3 className="text-md capitalize">King Dental Laboratory</h3>
           <h1 className="text-2xl uppercase">Data Penjualan</h1>
           <small className="capitalize">Tuesday, 25 february 2025</small>
         </div>
-        <ModalInvoice></ModalInvoice>
+        {/* <ModalInvoice></ModalInvoice> */}
         <div>
           <Button
             title="tambah data "
@@ -95,7 +93,9 @@ const Invoice = () => {
           <div className="bg-gray-600 text-slate-50 py-2 px-3">
             <small> {"<<"}Masukan id invoice untuk dicetak</small>
           </div>
-          <Button title="cetak Invoice" onClick={() => po2xk(noInvoice)} className="bg-slate-50 text-black py-1 px-3 rounded-md cursor-pointer ml-3"></Button>
+          <button onClick={() => po2xk(noInvoice)} className="bg-slate-50 text-black py-1 px-3 rounded-md cursor-pointer ml-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 7H6V3h12zm0 5.5q.425 0 .713-.288T19 11.5t-.288-.712T18 10.5t-.712.288T17 11.5t.288.713t.712.287M16 19v-4H8v4zm2 2H6v-4H2v-6q0-1.275.875-2.137T5 8h14q1.275 0 2.138.863T22 11v6h-4z" /></svg>
+          </button>
         </div>
         <TableInvoice column={columnInvoice} nvc={results}></TableInvoice>
       </section>

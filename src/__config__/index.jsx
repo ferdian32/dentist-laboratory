@@ -8,6 +8,7 @@ export const __local__ = ({ children }) => {
   const [xyz, setXyz] = useState([]);
   const [ongkir, setOngkir] = useState(0);
   const [diskon, setDiskon] = useState(0);
+  const [results, setResults] = useState("");
   const [formDataBarang, setFormDataBarang] = useState({
     nama_barang: "",
     kode_item: "",
@@ -20,11 +21,22 @@ export const __local__ = ({ children }) => {
     nama_barang: "",
     qty: 0,
     harga_satuan: 0,
-    harga_bruto: 0
+    harga_bruto: 0,
   })
+  const [formDataInvoice, setFormDataInvoice] = useState({
+    nama_customer: "",
+    alamat: "",
+    pasien: "",
+  });
+  const onChange = (event) => {
+    setFormDataInvoice((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value
+    }))
+  }
 
   return (
-    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon }}>
+    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon, formDataInvoice, setFormDataInvoice, onChange, results, setResults }}>
       {children}
     </__global__.Provider>
   )

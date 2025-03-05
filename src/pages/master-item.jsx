@@ -4,17 +4,10 @@ import Button from "../elements/button"
 import { __global__ } from "../__config__";
 import { Navbar } from "../components/navbar";
 import { column } from "../lib/data";
-// import Button from "../elements/button";
-// import DataTable from "react-data-table-component";
-// import Swal from "sweetalert2";
-// import { useNavigate } from "react-router-dom";
 import ModalElement from "../components/modal";
 import { __httpClient__ } from "../lib/http";
 export default function MasterItem() {
-  const { setIsOpen } = useContext(__global__);
-  const [results, setResults] = useState("");
-
-
+  const { setIsOpen, results, setResults } = useContext(__global__);
   useEffect(() => {
     const get = async () => {
       await __httpClient__.get(import.meta.env.VITE_BASE_URL_BRG)
