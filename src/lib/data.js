@@ -26,7 +26,7 @@ export const dataTransaksi = [{
     path: "/data-penjualan",
   },
 ];
-export const column = ['no', 'nama barang', 'kode item', 'satuan', 'harga beli', 'harga jual', 'supplier', 'no telpon', 'actions'];
+export const column = ['no', 'nama barang', 'kode item', 'satuan' , 'harga jual', 'actions'];
 
 export const columnRekap = ['no', 'tgl_invoice', 'No Invoice', 'Nama Customer', 'Alamat', 'Pasien', 'Grand Total'];
 export const nax03_ = [{

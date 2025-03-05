@@ -45,7 +45,7 @@ const ModalElement = () => {
             <FormGroup />
             <button
               type="submit"
-              className="bg-blue-500 text-slate-50 py-2 px-3 block text-end rounded-md"
+              className="bg-blue-500 text-slate-50 py-2 px-3 block text-end rounded-md cursor-pointer"
             >
               submit
             </button>

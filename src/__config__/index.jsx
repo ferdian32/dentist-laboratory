@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
-
+import { __httpClient__ } from "../lib/http";
+import Swal from "sweetalert2";
 export const __global__ = createContext(null);
 export const __local__ = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ export const __local__ = ({ children }) => {
     harga_satuan: 0,
     harga_bruto: 0
   })
+
   return (
     <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon }}>
       {children}

@@ -1,6 +1,6 @@
 import FormEditGroupBarang from "../fragments/FormEditGroupBarang";
 import { Navbar } from "../components/navbar";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { __httpClient__ } from "../lib/http";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
@@ -35,13 +35,13 @@ export default function EditDataBarang() {
   const SaveData = async (event) => {
     event.preventDefault();
     try {
-      const data = {
+      const _OAXs2 = {
         nama_barang: formData.nama_barang,
         kode_item: formData.kode_item,
         satuan: formData.satuan,
         harga_jual: formData.harga_jual
       };
-      const response = await __httpClient__.patch(`${import.meta.env.VITE_BASE_URL_BRG}/${id}`, data);
+      const response = await __httpClient__.patch(`${import.meta.env.VITE_BASE_URL_BRG}/${id}`, _OAXs2);
       if (response.status === 200) {
         Swal.fire({
           title: "Deleted!",

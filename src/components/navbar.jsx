@@ -9,10 +9,10 @@ export const Navbar = () => {
       <ul className="flex">
         {nax03_ && nax03_.map((__) => {
           return (
-            <li className="px-3 cursor-pointer"><Link to={__.path}>{__.name}</Link></li>
+            <li key={__.name} className="px-3 cursor-pointer"><Link to={__.path}>{__.name}</Link></li>
           )
         })}
       </ul>
     </nav>
   )
-}
+} 
