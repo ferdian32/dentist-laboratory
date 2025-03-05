@@ -39,7 +39,7 @@ export default function Table({ column, rows }) {
 
 
   return (
-    <table className="w-[00px] overflow-y-scroll">
+    <table className="w-[800px] overflow-y-scroll">
       <thead className="border border-slate-50">
         <tr>
           {column &&

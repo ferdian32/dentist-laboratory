@@ -73,7 +73,7 @@ const Invoice = () => {
   return (
     <Fragment>
       <Navbar></Navbar>
-      <section className="bg-sky-300 w-full h-screen py-8 px-4">
+      <section className="bg-sky-300 w-full h-screen overflow-hidden py-8 px-4">
         <div className="font-bold">
           <h3 className="text-md capitalize">King Dental Laboratory</h3>
           <h1 className="text-2xl uppercase">Data Penjualan</h1>

@@ -44,7 +44,7 @@ export default function EditDataBarang() {
       const response = await __httpClient__.patch(`${import.meta.env.VITE_BASE_URL_BRG}/${id}`, _OAXs2);
       if (response.status === 200) {
         Swal.fire({
-          title: "Deleted!",
+          title: "Updated!",
           text: "Your data has been updated.",
           icon: "success"
         });
