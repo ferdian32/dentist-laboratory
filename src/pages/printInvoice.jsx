@@ -67,7 +67,7 @@ export default function PrintInvoice() {
                 <p>{nvc.alamat}</p>
               </div>
             </div>
-            <div><strong>Order id</strong> : <span className="ml-16"> {nvc.id_invoice}</span></div>
+            <div><strong>Order id</strong> : <span className="ml-16"> {nvc.order_id}</span></div>
           </div>
           <div className="px-3 text-end ">
             <ul className="" >
