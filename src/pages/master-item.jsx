@@ -16,7 +16,7 @@ export default function MasterItem() {
           setResults(json.data)
           setTimeout(() => {
             setLd(false)
-          }, 3000)
+          }, 700)
         }).catch((err) => {
           console.log(err)
         });

@@ -6,7 +6,6 @@ import Button from "../elements/button";
 import { __httpClient__ } from "../lib/http";
 import { Tbody } from "../fragments/tbody";
 import { Thead } from "../fragments/thead";
-import { useReactToPrint } from "react-to-print";
 
 export default function PrintInvoice() {
   const { xyz, setXyz, ongkir, diskon } = useContext(__global__);

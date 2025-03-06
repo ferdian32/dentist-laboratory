@@ -3,6 +3,7 @@ import { __global__ } from "../__config__";
 import Button from "../elements/button";
 import Swal from "sweetalert2";
 import { __httpClient__ } from "../lib/http";
+import Input from "../elements/input";
 const FormGroupEditInvoice = ({ x, prms }) => {
   const { formDataInvoice, setFormDataInvoice } = useContext(__global__);
   const changeEvent = (event) => {
@@ -45,7 +46,7 @@ const FormGroupEditInvoice = ({ x, prms }) => {
       <section>
         <div>
           <label htmlFor="no_invoice">No Invoice</label>
-          <input
+          <Input
             onChange={changeEvent}
             className="border border-black w-full rounded-md py-1 px-3 mt-3"
             type="text"
@@ -57,7 +58,7 @@ const FormGroupEditInvoice = ({ x, prms }) => {
         </div>
         <div>
           <label htmlFor="nama_customer">Nama Customer</label>
-          <input
+          <Input
             onChange={changeEvent}
             className="border border-black w-full rounded-md py-1 px-3 mt-3"
             type="text"
@@ -69,7 +70,7 @@ const FormGroupEditInvoice = ({ x, prms }) => {
         </div>
         <div>
           <label htmlFor="alamat">Alamat</label>
-          <input
+          <Input
             onChange={changeEvent}
             className="border border-black w-full rounded-md py-1 px-3 mt-3"
             type="text"
@@ -81,7 +82,7 @@ const FormGroupEditInvoice = ({ x, prms }) => {
         </div>
         <div>
           <label htmlFor="pasien">Pasien</label>
-          <input
+          <Input
             onChange={changeEvent}
             className="border border-black w-full rounded-md py-1 px-3 mt-3"
             type="text"
@@ -93,7 +94,7 @@ const FormGroupEditInvoice = ({ x, prms }) => {
         </div>
         <div>
           <label htmlFor="order_id">order Id</label>
-          <input
+          <Input
             onChange={changeEvent}
             className="border border-black w-full rounded-md py-1 px-3 mt-3"
             type="text"

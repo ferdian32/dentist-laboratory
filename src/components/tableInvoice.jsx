@@ -38,7 +38,7 @@ const TableInvoice = ({ column, nvc }) => {
             });
             setTimeout(() => {
               window.location.href = "/invoice";
-            }, 1000);
+            }, 700);
           }
         } catch (error) {
           console.error("Delete Error:", error);

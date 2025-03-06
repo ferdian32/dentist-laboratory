@@ -23,7 +23,7 @@ const Invoice = () => {
           setTimeout(() => {
 
             setLd(false);
-          }, 5000)
+          }, 700)
         })
         .catch((error) => {
           console.log(error);

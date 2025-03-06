@@ -20,16 +20,7 @@ export default function RekapPenjualan() {
         }, 8000)
         const ax02_xs = json?.data.reduce((x, y) => {
           const exst_2a = x.find((i) => i.no_invoice === y.no_invoice);
-          let mx2 = Math.floor(Math.random() * y.length);
-          const regexPattern = /[a-zA-Z]+/g;
-          const matches = id.match(regexPattern);
-          if (matches) {
-            console.log(matches);
-          } else {
-
-            console.log("No matches found in ID.");
-
-          }
+          
           if (exst_2a) {
             exst_2a.total += y.total;
             console.log(mx2);
@@ -37,7 +28,6 @@ export default function RekapPenjualan() {
           } else {
             x.push({ ...y });
           }
-
           return x;
         }, []);
 
