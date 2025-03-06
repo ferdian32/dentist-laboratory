@@ -5,7 +5,7 @@ const FormGroupInvoice = ({ setFormData }) => {
       ...prev,
       [event.target.name]: event.target.value
     }))
-  }
+  };
   return (
     <div>
       <input

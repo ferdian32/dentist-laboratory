@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MasterItem from './pages/master-item.jsx';
 import { __local__ } from './__config__/index.jsx';
 import Invoice from './pages/invoice.jsx';
+import EditDataInvoice from './pages/editInvoice.jsx';
 import AddDataPenjualan from './pages/addDataPenjualan.jsx';
 import EditDataBarang from './pages/editDataBarang.jsx';
 import RekapPenjualan from './pages/rekapPenjualan.jsx';
@@ -25,7 +26,7 @@ const browserRouter = createBrowserRouter([
   },
   {
     path: '/invoice',
-    element: <Invoice></Invoice>
+    element: <Invoice></Invoice>,
   },
   {
     path: '/addDataPenjualan',
@@ -38,6 +39,10 @@ const browserRouter = createBrowserRouter([
   {
     path: '/print/:no_invoice',
     element: <PrintInvoice></PrintInvoice>
+  },
+  {
+    path: '/editDataInvoice/:id_invoice',
+    element: <EditDataInvoice></EditDataInvoice>
   }
 ])
 createRoot(document.getElementById('root')).render(

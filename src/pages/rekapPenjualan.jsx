@@ -14,14 +14,14 @@ export default function RekapPenjualan() {
           const exst_2a = x.find((i) => i.no_invoice === y.no_invoice);
           let mx2 = Math.floor(Math.random() * y.length);
           if (exst_2a) {
-            exst_2a.total += item.total;
+            exst_2a.total += y.total;
             console.log(mx2);
 
           } else {
             x.push({ ...y });
           }
 
-          return i;
+          return x;
         }, []);
 
         setKzp(ax02_xs);

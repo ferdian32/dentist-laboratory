@@ -10,6 +10,7 @@ export default function ModalInvoice() {
     event.preventDefault();
     const { nama_customer, alamat, pasien, keterangan, no_invoice } = formDataInvoice;
     const data = {
+      id_invoice: nanoid(),
       tgl_invoice: new Date().toISOString(),
       no_invoice,
       nama_customer,

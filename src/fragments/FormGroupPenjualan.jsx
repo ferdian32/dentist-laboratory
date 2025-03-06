@@ -4,13 +4,13 @@ import Swal from "sweetalert2";
 import { __global__ } from "../__config__";
 import { __httpClient__ } from "../lib/http";
 const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }) => {
-  const { setDataPenjualan, dataPenjualan } = useContext(__global__);
-  const [objx_021, setObjx_021] = useState([])
+  const { setDataPenjualan, dataPenjualan, setObjx_021, objx_021 } = useContext(__global__);
   useEffect(() => {
     const get = async () => {
       await __httpClient__.get(import.meta.env.VITE_BASE_URL_BRG)
         .then((results) => {
-          const json = results.data
+          const json = results.data;
+          console.log(json);
           setObjx_021(json.data)
         }).catch((err) => {
           console.log(err)
@@ -30,6 +30,7 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
   const addData = () => {
     const { no_invoice, keterangan, nama_barang, qty } = formDataPenjualan;
     const data = {
+      id_invoice: obs_2xa.id_invoice,
       no_invoice,
       keterangan,
       nama_barang,
@@ -73,7 +74,6 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
             <option value="">Pilih No Invoice</option>
             {invoice && invoice.map((data) => {
               return (
-
                 <option key={data?.no_invoice} value={data?.no_invoice}>{data?.no_invoice}</option>
               )
             })}
