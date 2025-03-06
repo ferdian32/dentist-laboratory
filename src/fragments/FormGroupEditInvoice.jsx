@@ -1,31 +1,15 @@
 import { useContext } from "react";
 import { __global__ } from "../__config__";
-import { useState, useEffect } from "react";
 import Button from "../elements/button";
 import { __httpClient__ } from "../lib/http";
 const FormGroupEditInvoice = ({ x, prms }) => {
-  const [formX, setFormX] = useState({
-    nama: '',
-    keterangan: '',
-    qty: 0,
-    harga_satuan: 0
-  })
-  const { UpdatedataPenjualan, setUpdatedataPenjualan, formDataInvoice, setFormDataInvoice, objx_021, setPx23, px23 } = useContext(__global__);
+  const { formDataInvoice, setFormDataInvoice } = useContext(__global__);
   const changeEvent = (event) => {
     setFormDataInvoice((prev) => ({
       ...prev,
       [event.target.name]: event.target.value
     }))
   };
-  const ChangeEventHandler = (event) => {
-    setFormX((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.value
-    }))
-  }
-  console.log(formDataInvoice);
-  const kn_tl = objx_021.find((_) => _.nama_barang === formX.nama_barang);
-  const obs_2xa = kn_tl ? kn_tl : 0
   const _2x3al = async () => {
     try {
       const data = {
@@ -34,7 +18,6 @@ const FormGroupEditInvoice = ({ x, prms }) => {
         alamat: formDataInvoice.alamat,
         pasien: formDataInvoice.pasien
       }
-      console.log(data);
       const response = await __httpClient__.patch(`${import.meta.env.VITE_BASE_URL_NVC}/${prms}`, data);
       if (response.status === 200) {
         Swal.fire({
@@ -47,7 +30,7 @@ const FormGroupEditInvoice = ({ x, prms }) => {
           }
         });
       } else {
-        alert('gagal Mengubah data');
+        alert('Kontol');
       }
       return response;
     } catch (error) {

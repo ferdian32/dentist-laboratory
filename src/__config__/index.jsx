@@ -6,6 +6,7 @@ export const __local__ = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dataPenjualan, setDataPenjualan] = useState([]);
   const [UpdatedataPenjualan, setUpdatedataPenjualan] = useState([]);
+  const [ld, setLd] = useState(true);
   const [xyz, setXyz] = useState([]);
   const [ongkir, setOngkir] = useState(0);
   const [diskon, setDiskon] = useState(0);
@@ -31,16 +32,11 @@ export const __local__ = ({ children }) => {
     nama_customer: "",
     alamat: "",
     pasien: "",
+    oder_id: "",
   });
-  // const onChange = (event) => {
-  //   setFormDataInvoice((prev) => ({
-  //     ...prev,
-  //     [event.target.name]: event.target.value
-  //   }))
-  // }
 
   return (
-    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon, formDataInvoice, setFormDataInvoice, results, setResults, px23, setPx23, objx_021, setObjx_021, UpdatedataPenjualan, setUpdatedataPenjualan }}>
+    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon, formDataInvoice, setFormDataInvoice, results, setResults, px23, setPx23, objx_021, setObjx_021, UpdatedataPenjualan, setUpdatedataPenjualan, ld, setLd }}>
       {children}
     </__global__.Provider>
   )

@@ -42,6 +42,14 @@ const FormGroupInvoice = ({ setFormData }) => {
         id="pasien"
         placeholder="Pasien"
       />
+      <input
+        onChange={changeEvent}
+        className="border border-black w-full rounded-md py-1 px-3 mt-3"
+        type="text"
+        name="order_id"
+        id="order_id"
+        placeholder="Order_id"
+      />
     </div>
   )
 };

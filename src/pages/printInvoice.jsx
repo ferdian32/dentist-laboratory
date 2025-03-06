@@ -42,10 +42,9 @@ export default function PrintInvoice() {
   const Sbt = xyz.reduce((x, y) => x + y.harga_bruto, 0);
   let grndT = (Number(Sbt) + Number(ongkir)) - (Number(Sbt) / 100 * Number(diskon));
 
-  const HandlePrint = () => {
+  const _of2xa = () => {
     console.log('window is called')
     window.print()
-
   }
   return (
     <section className="lg:w-[800px] md:w-[800px] w-full px-3  overflow-hidden" >
@@ -68,6 +67,7 @@ export default function PrintInvoice() {
                 <p>{nvc.alamat}</p>
               </div>
             </div>
+            <div><strong>Order id</strong> : <span className="ml-16"> {nvc.id_invoice}</span></div>
           </div>
           <div className="px-3 text-end ">
             <ul className="" >
@@ -87,12 +87,12 @@ export default function PrintInvoice() {
             </ul>
           </div>
         </div >
-        <table className="w-full" >
+        <table className="w-full mt-3  border-2" >
           <Thead columnPrintInvoice={columnPrintInvoice}></Thead>
           <Tbody xyz={xyz} Sbt={Sbt} grndT={grndT} ></Tbody>
         </table>
       </div >
-      <Button title="print invoice" className={`py-1 px-3 bg-black  text-slate-50 mt-3 rounded-sm cursor-pointer absolute no-print `} onClick={HandlePrint}>
+      <Button title="print invoice" className={`py-1 px-3 bg-black  text-slate-50 mt-3 rounded-sm cursor-pointer absolute no-print `} onClick={_of2xa}>
         Print Invoice
       </Button>
     </section >

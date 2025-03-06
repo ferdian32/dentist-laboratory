@@ -11,7 +11,7 @@ import { columnInvoice } from "../lib/data";
 import Swal from "sweetalert2";
 
 const Invoice = () => {
-  const { setIsOpen, xyz, setXyz } = useContext(__global__);
+  const { setIsOpen, xyz, setXyz, ld, setLd } = useContext(__global__);
   const [noInvoice, setNoInvoice] = useState("");
   const [results, setResults] = useState([]);
   useEffect(() => {
@@ -20,6 +20,10 @@ const Invoice = () => {
         .then((rsl) => {
           const json = rsl.data;
           setResults(json.data);
+          setTimeout(() => {
+
+            setLd(false);
+          }, 5000)
         })
         .catch((error) => {
           console.log(error);
@@ -68,6 +72,7 @@ const Invoice = () => {
       console.log(error);
     }
   }
+  if (ld) return <div className="w-full h-screen flex items-center justify-center text-2xl font-bold italic">Load....</div>
   return (
     <Fragment>
       <Navbar></Navbar>

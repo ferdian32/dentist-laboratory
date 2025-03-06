@@ -10,12 +10,12 @@ export function Tbody({ xyz, Sbt, grndT }) {
         return (
 
           <tr key={index}>
-            <td className="w-[50px] py-2 px-3 border-2 border-2-black">{index + 1}</td>
-            <td className="py-2 px-3 border-2 border-2-black">{zyx.keterangan}</td>
-            <td className="py-2 px-3 border-2 border-2-black">{zyx.nama_barang}</td>
-            <td className="py-2 px-3 border-2 border-2-black">{zyx.qty}</td>
-            <td className="py-2 px-3 border-2 border-2-black">Rp {zyx.harga_satuan}</td>
-            <td className="py-2 px-3 border-2 border-2-black">Rp {zyx.harga_bruto}</td>
+            <td className="w-[50px] py-2 px-3 border-t-2 border-t-2-black text-center">{index + 1}</td>
+            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">{zyx.keterangan}</td>
+            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">{zyx.nama_barang}</td>
+            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">{zyx.qty}</td>
+            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">Rp {zyx.harga_satuan}</td>
+            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">Rp {zyx.harga_bruto}</td>
           </tr>
         )
       })}
@@ -29,7 +29,6 @@ export function Tbody({ xyz, Sbt, grndT }) {
             </div>
             <div >
               <h3 className="font-bold">Diterima Oleh:</h3>
-              <p className="my-5">Nama</p>
             </div>
           </div>
           <div className="border-2 border-2-black absolute bottom-0 right-0 px-10 w-full  italic">

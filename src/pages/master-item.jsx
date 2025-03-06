@@ -7,13 +7,16 @@ import { column } from "../lib/data";
 import ModalElement from "../components/modal";
 import { __httpClient__ } from "../lib/http";
 export default function MasterItem() {
-  const { setIsOpen, results, setResults } = useContext(__global__);
+  const { setIsOpen, results, setResults, ld, setLd } = useContext(__global__);
   useEffect(() => {
     const get = async () => {
       await __httpClient__.get(import.meta.env.VITE_BASE_URL_BRG)
         .then((results) => {
           const json = results.data
           setResults(json.data)
+          setTimeout(() => {
+            setLd(false)
+          }, 3000)
         }).catch((err) => {
           console.log(err)
         });
@@ -21,6 +24,7 @@ export default function MasterItem() {
     };
     get();
   }, [])
+  if (ld) return <div className="w-full h-screen flex items-center justify-center text-2xl font-bold italic">Load....</div>
   return (
     <Fragment>
       <Navbar></Navbar>
@@ -37,7 +41,6 @@ export default function MasterItem() {
           onClick={() => setIsOpen(true)}
         />
         <Table column={column} rows={results}></Table>
-        {/* <DataTable columns={columns} data={results} pagination></DataTable> */}
         <ModalElement></ModalElement>
       </section>
     </Fragment>

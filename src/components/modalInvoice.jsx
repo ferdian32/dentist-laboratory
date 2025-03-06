@@ -8,7 +8,7 @@ export default function ModalInvoice() {
   const { isOpen, setIsOpen, setFormDataInvoice, formDataInvoice } = useContext(__global__);
   const handleForm = (event) => {
     event.preventDefault();
-    const { nama_customer, alamat, pasien, keterangan, no_invoice } = formDataInvoice;
+    const { nama_customer, alamat, pasien, no_invoice, order_id } = formDataInvoice;
     const data = {
       id_invoice: nanoid(),
       tgl_invoice: new Date().toISOString(),
@@ -16,7 +16,7 @@ export default function ModalInvoice() {
       nama_customer,
       alamat,
       pasien,
-      keterangan
+      order_id,
     }
     try {
       const response = __httpClient__.post(import.meta.env.VITE_BASE_URL_NVC, data);

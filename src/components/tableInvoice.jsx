@@ -26,7 +26,7 @@ const TableInvoice = ({ column, nvc }) => {
 
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:3000/invoice/${no}`, {
+          const response = await __httpClient__.delete(`${import.meta.env.VITE_BASE_URL_NVC}/${no}`, {
             method: 'DELETE',
           });
           console.log(response);
@@ -81,6 +81,7 @@ const TableInvoice = ({ column, nvc }) => {
                 <td className="border border-black px-3">{data.nama_customer}</td>
                 <td className="border border-black px-3">{data.alamat}</td>
                 <td className="border border-black px-3">{data.pasien}</td>
+                <td className="border border-black px-3">{data.order_id}</td>
                 <td className="border border-black px-3">
                   {penjualan && penjualan.filter((dp) => data.no_invoice === dp.no_invoice).map((d, index) => {
                     return (

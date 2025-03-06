@@ -1,4 +1,4 @@
-export const columnInvoice = ['tgl_invoice', 'no_invoice', 'nama customer', 'alamat', 'pasien', 'keterangan', 'nama barang', 'qty', 'harga satuan', 'harga bruto', 'net invoice', 'actions'];
+export const columnInvoice = ['tgl_invoice', 'no_invoice', 'nama customer', 'alamat', 'pasien', 'order id', 'keterangan', 'nama barang', 'qty', 'harga satuan', 'harga bruto', 'net invoice', 'actions'];
 
 export const columnPrintInvoice = ['no', 'Gigi yang dibuat', 'keterangan', 'jml', 'satuan', 'harga netto']
 export const dataTransaksi = [{

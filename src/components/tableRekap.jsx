@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+
 import { __httpClient__ } from "../lib/http";
 
-const TableRekap = ({ column, rows }) => {
+const TableRekap = ({ column, rows, sc }) => {
   return (
     <table className="w-[800px]">
       <thead className="border border-slate-50">
@@ -20,7 +20,9 @@ const TableRekap = ({ column, rows }) => {
         </tr>
       </thead>
       <tbody>
-        {rows && rows.map((row, index) => {
+        {rows && rows.filter((ys) => {
+          return sc.toLowerCase() === '' ? ys : ys.nama_customer.toLowerCase().includes(sc)
+        }).map((row, index) => {
           return (
             <tr key={row.no_invoice} className="bg-slate-50 py-2 px-3 text-sm">
               <td className="text-center border  border-black px-3">{index + 1}</td>
