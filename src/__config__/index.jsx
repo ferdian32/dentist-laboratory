@@ -24,19 +24,20 @@ export const __local__ = ({ children }) => {
     harga_bruto: 0,
   })
   const [formDataInvoice, setFormDataInvoice] = useState({
+    no_invoice: "",
     nama_customer: "",
     alamat: "",
     pasien: "",
   });
-  const onChange = (event) => {
-    setFormDataInvoice((prev) => ({
-      ...prev,
-      [event.target.name]: event.target.value
-    }))
-  }
+  // const onChange = (event) => {
+  //   setFormDataInvoice((prev) => ({
+  //     ...prev,
+  //     [event.target.name]: event.target.value
+  //   }))
+  // }
 
   return (
-    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon, formDataInvoice, setFormDataInvoice, onChange, results, setResults }}>
+    <__global__.Provider value={{ isOpen, setIsOpen, formDataBarang, setDataPenjualan, dataPenjualan, setFormDataBarang, formDataPenjualan, setFormDataPenjualan, xyz, setXyz, ongkir, setOngkir, diskon, setDiskon, formDataInvoice, setFormDataInvoice, results, setResults }}>
       {children}
     </__global__.Provider>
   )

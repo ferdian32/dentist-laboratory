@@ -1,8 +1,10 @@
 import { Fragment, useContext, useEffect, useState } from "react";
+import Button from "../elements/button";
+import Swal from "sweetalert2";
 import { __global__ } from "../__config__";
 import { __httpClient__ } from "../lib/http";
 const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }) => {
-  const { setDataPenjualan, dataPenjualan, onChange } = useContext(__global__);
+  const { setDataPenjualan, dataPenjualan } = useContext(__global__);
   const [objx_021, setObjx_021] = useState([])
   useEffect(() => {
     const get = async () => {
@@ -43,6 +45,25 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
     }
   };
 
+  const knt_2xl = async () => {
+    try {
+      const _p2x0 = await __httpClient__.post(import.meta.env.VITE_BASE_URL_PNJL, dataPenjualan)
+      if (_p2x0) {
+        Swal.fire({
+          title: "Success!",
+          text: "Data has been successfully confirmed!",
+          icon: "success"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '/invoice'
+          }
+        });
+      }
+    } catch (error) {
+      console.log("Error saat menyimpan data:", error);
+      alert("Terjadi kesalahan saat menyimpan data. Coba lagi.");
+    }
+  };
   return (
     <div className="grid grid-cols-2 gap-x-3">
       <section>
@@ -84,49 +105,11 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
           <h3 className="border border-gray-500 rounded-sm px-3">{obs_2xa.harga_jual ? obs_2xa.harga_jual : 0}</h3>
         </div>
         <div>
-          <button className="bg-black mt-3 text-slate-50 py-2 px-3 rounded-md" onClick={addData}>Tambah Data</button>
-
+          <Button title="Tambah Data" className="bg-black mt-3 text-slate-50 py-2 px-3 rounded-md" onClick={addData}></Button>
+          <Button title="Simpan Data" onClick={knt_2xl} type="submit" className="bg-rose-500 text-slate-50 py-2 ml-3 px-3 rounded-md cursor-pointer"></Button>
         </div>
       </section>
-      <section>
-        <div>
-          <label htmlFor="nama_customer">Nama Customer</label>
-          <input
-            onChange={onChange}
-            className="border border-black w-full rounded-md py-1 px-3 mt-3"
-            label="nama customer"
-            type="text"
-            name="nama_customer"
-            id="nama_customer"
-            placeholder="Masukan Nama Customer"
 
-          />
-        </div>
-        <div>
-          <label htmlFor="alamat">Alamat</label>
-          <input
-            onChange={onChange}
-            className="border border-black w-full rounded-md py-1 px-3 mt-3"
-            label="alamat"
-            type="text"
-            name="alamat"
-            id="alamat"
-            placeholder="Alamat .."
-          />
-        </div>
-        <div>
-          <label htmlFor="pasien">Pasien</label>
-          <input
-            onChange={onChange}
-            className="border border-black w-full rounded-md py-1 px-3 mt-3"
-            label="pasien"
-            type="text"
-            name="pasien"
-            id="pasien"
-            placeholder="Pasien"
-          />
-        </div>
-      </section>
     </div>
   )
 };

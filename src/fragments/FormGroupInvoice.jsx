@@ -1,17 +1,25 @@
 
 const FormGroupInvoice = ({ setFormData }) => {
-// const changeEventHandler = (event) => {
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [event.target.name]: event.target.value
-  //   }))
-  // }
+  const changeEvent = (event) => {
+    setFormData((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value
+    }))
+  }
   return (
     <div>
       <input
         onChange={changeEvent}
         className="border border-black w-full rounded-md py-1 px-3 mt-3"
-        label="nama customer"
+        type="text"
+        name="no_invoice"
+        id="no_invoice"
+        placeholder="Masukan No Invoice"
+
+      />
+      <input
+        onChange={changeEvent}
+        className="border border-black w-full rounded-md py-1 px-3 mt-3"
         type="text"
         name="nama_customer"
         id="nama_customer"
@@ -21,7 +29,6 @@ const FormGroupInvoice = ({ setFormData }) => {
       <input
         onChange={changeEvent}
         className="border border-black w-full rounded-md py-1 px-3 mt-3"
-        label="alamat"
         type="text"
         name="alamat"
         id="alamat"
@@ -30,7 +37,6 @@ const FormGroupInvoice = ({ setFormData }) => {
       <input
         onChange={changeEvent}
         className="border border-black w-full rounded-md py-1 px-3 mt-3"
-        label="pasien"
         type="text"
         name="pasien"
         id="pasien"

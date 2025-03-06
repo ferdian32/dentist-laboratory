@@ -1,11 +1,11 @@
 import FormGroupPenjualan from "../fragments/FormGroupPenjualan";
+import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import { __global__ } from "../__config__";
 import { __httpClient__ } from "../lib/http";
 const AddDataPenjualan = () => {
-  const { formDataPenjualan, setFormDataPenjualan, dataPenjualan, formDataInvoice } = useContext(__global__);
+  const { formDataPenjualan, setFormDataPenjualan, dataPenjualan } = useContext(__global__);
   const [dataInvoice, setDataInvoice] = useState([]);
-  console.log(formDataInvoice);
   useEffect(() => {
     const get = async () => {
       const response = await __httpClient__.get(import.meta.env.VITE_BASE_URL_NVC);
@@ -14,36 +14,7 @@ const AddDataPenjualan = () => {
     };
     get();
   }, []);
-  const saveDataPenjualan = async () => {
-    try {
-      console.log(formDataInvoice);
-      const { nama_customer, alamat, pasien } = formDataInvoice;
-      const _k02xap = {
-        nama_customer,
-        alamat,
-        pasien
-      };
-
-      const [responsePenjualan, responseInvoice] = await Promise.all([
-        __httpClient__.post(import.meta.env.VITE_BASE_URL_PNJL, dataPenjualan),
-        fetch(import.meta.env.VITE_BASE_URL_NVC, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(_k02xap)
-        })
-      ]);
-
-      if (responsePenjualan && responseInvoice) {
-        alert("Data Has been successfully confirmed");
-        window.location.href = "/invoice";
-      }
-    } catch (error) {
-      console.log("Error saat menyimpan data:", error);
-      alert("Terjadi kesalahan saat menyimpan data. Coba lagi.");
-    }
-  };
+  
 
   return (
     <section className="px-3 w-full h-screen overflow-hidden py-8  ">
@@ -70,7 +41,7 @@ const AddDataPenjualan = () => {
             {']'}
           </div>
         </div>
-        <button onClick={saveDataPenjualan} className="bg-rose-500 text-slate-50 py-1 px-3 rounded-md">Simpan Data</button>
+       
 
       </div>
     </section >

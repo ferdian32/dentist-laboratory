@@ -1,16 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import Swal from "sweetalert2";
 import { __global__, __local__ } from "../__config__";
 import FormGroupInvoice from "../fragments/FormGroupInvoice";
 import { __httpClient__ } from "../lib/http";
 import { nanoid } from "nanoid";
 export default function ModalInvoice() {
-  const { isOpen, setIsOpen, } = useContext(__global__);
+  const { isOpen, setIsOpen, setFormDataInvoice, formDataInvoice } = useContext(__global__);
   const handleForm = (event) => {
     event.preventDefault();
-    const { nama_customer, alamat, pasien, keterangan } = formDataInvoice;
+    const { nama_customer, alamat, pasien, keterangan, no_invoice } = formDataInvoice;
     const data = {
       tgl_invoice: new Date().toISOString(),
-      no_invoice: nanoid(),
+      no_invoice,
       nama_customer,
       alamat,
       pasien,
@@ -19,8 +20,16 @@ export default function ModalInvoice() {
     try {
       const response = __httpClient__.post(import.meta.env.VITE_BASE_URL_NVC, data);
       if (response) {
-        alert('success!!!!');
-        window.location.href = '/invoice'
+        Swal.fire({
+          title: "Success!",
+          text: "Data has been successfully confirmed!",
+          icon: "success"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = '/invoice'
+          }
+        });
+
       }
     } catch (error) {
       console.log(error);

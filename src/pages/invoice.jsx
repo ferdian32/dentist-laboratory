@@ -77,7 +77,7 @@ const Invoice = () => {
           <h1 className="text-2xl uppercase">Data Penjualan</h1>
           <small className="capitalize">Tuesday, 25 february 2025</small>
         </div>
-        {/* <ModalInvoice></ModalInvoice> */}
+        <ModalInvoice></ModalInvoice>
         <div>
           <Button
             title="tambah data "
