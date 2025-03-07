@@ -22,4 +22,12 @@ input[type="number"] {
   .no-print {
     display: none;
   }
+
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
 }

@@ -58,13 +58,13 @@ export default function PrintInvoice() {
             </p>
           </div>
           <div className="grid grid-cols-2">
-            <div>
+            <div className=" max-w-[260px]">
               <h6><strong>Kepada:</strong></h6>
               <div className="flex justify-between items-center">
                 <div className="leading-6">
                   <p>{nvc.nama_customer}</p>
                 </div>
-                <div>
+                <div className="px-3">
                   <p>{nvc.alamat}</p>
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default function PrintInvoice() {
                 <div className="leading-6">
                   <p>{nvc.pasien}</p>
                 </div>
-                <div>
+                <div className="px-3">
                   <p>{nvc.order_id}</p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function PrintInvoice() {
 
           </div>
         </div >
-        <table className="w-full  mt-5 border-2" >
+        <table className="w-full  mt-5 border-3" >
           <Thead columnPrintInvoice={columnPrintInvoice}></Thead>
           <Tbody xyz={xyz} Sbt={Sbt} grndT={grndT} ></Tbody>
         </table>

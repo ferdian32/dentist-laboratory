@@ -4,7 +4,7 @@ export function Thead({ columnPrintInvoice }) {
       <tr >
 
         {columnPrintInvoice && columnPrintInvoice.map((col, index) => {
-          return <th className="py-2 px-3 border-l-3 border-l-3-black" key={index}>{col}</th>
+          return <th className="px-3 border-l-3 border-l-3-black" key={index}>{col}</th>
         })}
       </tr>
     </thead>

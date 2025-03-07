@@ -12,7 +12,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
 
           <tr key={index} className={`${xyz.length === 1 ? "h-[100px]" : ""}`} >
             <td className="w-[50px]px-3 border-r-3  border-r-3-black text-center">{index + 1}</td>
-            <td className="px-3 border-r-2 border-r-2-black text-center">{zyx.keterangan}</td>
+            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.keterangan}</td>
             <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.nama_barang}</td>
             <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.qty}</td>
             <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.harga_satuan}</td>
@@ -26,52 +26,56 @@ export function Tbody({ xyz, Sbt, grndT }) {
 
             <div>
               <h3 className="font-bold">Dicetak Oleh:</h3>
-              <p className="my-5">Admin</p>
+              <p>Admin</p>
             </div>
             <div >
               <h3 className="font-bold">Diterima Oleh:</h3>
             </div>
           </div>
-          <div className="border-2 border-2-black absolute bottom-0 right-0 px-10 w-full  italic">
+          <div className="border-t-2 border-t-2-black absolute bottom-0 right-0 px-10 w-full  italic">
             <h3>Terlampir: </h3>
           </div>
         </td>
-        <td colSpan={2} className="border-2 border-2-black ">
-          <div className="grid grid-cols-2">
-            <div className="py-2 px-3 border-2 border-2-black">
+        <td colSpan={2} className="border border-black">
+          <div className="grid grid-cols-2 border-t-2 border-t-2-black">
+            <div className="px-3 border-r-2 border-r-2-black">
               Subtotal
             </div>
-            <div className="py-2 px-3 border-2 border-2-black">
+            <div className="px-3 text-end">
               {Sbt}
             </div>
           </div>
-          <div className="grid grid-cols-2">
-            <div className="py-2 px-3 border-2 border-2-black">
+          <div className="grid grid-cols-2 border-t-2 border-t-2-black">
+            <div className="px-3 border-r-2 border-r-2-black">
               Ongkos Kirim
             </div>
-            <div className="py-2 px-3 border-2 border-2-black">
-              <Input type="number" name="ongkir" id="ongkir" className="w-20 rounded-md py-2 px-3 outline-0" value={ongkir} onChange={(event) => setOngkir(event.target.value)}></Input>
+            <div className="px-3 text-end">
+              <Input type="number" name="ongkir" id="ongkir" className=" text-end w-20 rounded-md px-3 outline-0" value={ongkir} onChange={(event) => setOngkir(event.target.value)}></Input>
             </div>
 
           </div>
-          <div className="grid grid-cols-2">
-            <div className="py-2 px-3 border-2 border-2-black">
+          <div className="grid grid-cols-2 border-t-2 border-t-2-black">
+            <div className="px-3 border-r-2 border-r-2-black">
               Diskon
             </div>
-            <div className="py-2 px-3 border-2 border-2-black">
+            <div className="px-3">
               <label htmlFor="diskon">
 
-                <Input type="number" name="diskon" className="w-20 rounded-md py-2 px-3 outline-0" id="diskon" value={diskon} onChange={(event) => setDiskon(event.target.value)} />
+                <Input type="number" name="diskon" className="w-20 text-end rounded-md py-1 px-3 outline-0" id="diskon" value={diskon} onChange={(event) => setDiskon(event.target.value)} />
                 %
               </label>
             </div>
           </div>
-          <div className="grid grid-cols-2">
-            <div className="py-2  border-2 border-2-black px-3">
+          <div className="grid grid-cols-2 border-t-2 border-t-2-black">
+            <div className="py-2 px-3 border-r-2 border-r-2-black">
               Grandtotal
             </div>
-            <div className="py-2  border-2 border-2-black px-3">
-              Rp {grndT}
+            <div className="py-2   px-3 flex items-center justify-between">
+              <div>
+
+                Rp
+              </div>
+              {grndT}
             </div>
           </div>
         </td>
