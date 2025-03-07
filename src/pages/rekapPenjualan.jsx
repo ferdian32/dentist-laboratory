@@ -14,16 +14,16 @@ export default function RekapPenjualan() {
       try {
         const result = await __httpClient__.get(import.meta.env.VITE_BASE_URL_KRP);
         const json = result.data;
+        console.log(json);
         setTimeout(() => {
 
           setLd(false)
-        }, 8000)
+        }, 700)
         const ax02_xs = json?.data.reduce((x, y) => {
           const exst_2a = x.find((i) => i.no_invoice === y.no_invoice);
-          
+
           if (exst_2a) {
             exst_2a.total += y.total;
-            console.log(mx2);
 
           } else {
             x.push({ ...y });
@@ -42,7 +42,7 @@ export default function RekapPenjualan() {
   return (
     <Fragment>
       <Navbar></Navbar>
-      <section className="bg-sky-300 w-full h-screen py-8 px-4">
+      <section className=" w-full py-8 px-4">
         <div className="font-bold">
           <h3 className="text-md capitalize">King Dental Laboratory</h3>
           <h1 className="text-2xl uppercase">Data Rekap Penjualan</h1>

@@ -28,7 +28,7 @@ export default function MasterItem() {
   return (
     <Fragment>
       <Navbar></Navbar>
-      <section className="bg-sky-300 w-full h-screen overflow-hidden py-8 px-4">
+      <section className=" w-full  py-8 px-4">
         <div className="font-bold">
           <h3 className="text-md capitalize">King Dental Laboratory</h3>
           <h1 className="text-2xl uppercase">Master item</h1>
@@ -37,7 +37,7 @@ export default function MasterItem() {
 
         <Button
           title="tambah data"
-          className="bg-sky-500 text-slate-50 my-3 py-1 px-3 rounded-md cursor-pointer"
+          className="bg-sky-500 text-slate-50 my-3 mr-5 py-1 px-3 rounded-md cursor-pointer"
           onClick={() => setIsOpen(true)}
         />
         <Table column={column} rows={results}></Table>

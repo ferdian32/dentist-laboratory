@@ -10,12 +10,12 @@ export function Tbody({ xyz, Sbt, grndT }) {
         return (
 
           <tr key={index}>
-            <td className="w-[50px] py-2 px-3 border-t-2 border-t-2-black text-center">{index + 1}</td>
-            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">{zyx.keterangan}</td>
-            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">{zyx.nama_barang}</td>
-            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">{zyx.qty}</td>
-            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">Rp {zyx.harga_satuan}</td>
-            <td className="py-2 px-3 border-t-2 border-t-2-black text-center">Rp {zyx.harga_bruto}</td>
+            <td className="w-[50px] py-2 px-3 border-r-3  border-r-3-black text-center">{index + 1}</td>
+            <td className="py-2 px-3 border-r-2  border-r-2-black text-center">{zyx.keterangan}</td>
+            <td className="py-2 px-3 border-r-3  border-r-3-black text-center">{zyx.nama_barang}</td>
+            <td className="py-2 px-3 border-r-3  border-r-3-black text-center">{zyx.qty}</td>
+            <td className="py-2 px-3 border-r-3  border-r-3-black text-center">Rp {zyx.harga_satuan}</td>
+            <td className="py-2 px-3 border-r-2  border-r-2-black text-center">Rp {zyx.harga_bruto}</td>
           </tr>
         )
       })}
@@ -66,10 +66,10 @@ export function Tbody({ xyz, Sbt, grndT }) {
             </div>
           </div>
           <div className="grid grid-cols-2">
-            <div className="py-2  border-2 border-2-black">
+            <div className="py-2  border-2 border-2-black px-3">
               Grandtotal
             </div>
-            <div className="py-2  border-2 border-2-black">
+            <div className="py-2  border-2 border-2-black px-3">
               Rp {grndT}
             </div>
           </div>

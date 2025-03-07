@@ -1,6 +1,7 @@
 import { __httpClient__ } from "../lib/http";
 import { Fragment, useContext, useEffect, useState } from "react";
 import Button from "../elements/button";
+import { CSVLink } from "react-csv";
 import Input from "../elements/input";
 import { Navbar } from "../components/navbar";
 import TableInvoice from "../components/tableInvoice";
@@ -76,7 +77,7 @@ const Invoice = () => {
   return (
     <Fragment>
       <Navbar></Navbar>
-      <section className="bg-sky-300 h-screen w-full overflow-hidden py-8 px-4">
+      <section className=" w-full  py-8 px-4">
         <div className="font-bold">
           <h3 className="text-md capitalize">King Dental Laboratory</h3>
           <h1 className="text-2xl uppercase">Data Penjualan</h1>

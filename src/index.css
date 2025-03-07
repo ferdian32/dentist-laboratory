@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  background-color: rgb(223, 222, 222);
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -10,13 +14,8 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-
 .card {
   padding: 2em;
-}
-
-th {
-  border: 1px solid white;
 }
 
 @media print {

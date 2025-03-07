@@ -26,7 +26,7 @@ const TableRekap = ({ column, rows, sc }) => {
           return (
             <tr key={row.no_invoice} className="bg-slate-50 py-2 px-3 text-sm">
               <td className="text-center border  border-black px-3">{index + 1}</td>
-              <td className="text-center border  border-black px-3">{row.tgl_invoice}</td>
+              <td className="text-center border  border-black px-3">{row.tgl_invoice ? new Date(row?.tgl_invoice).toDateString() : ''}</td>
               <td className="text-center border  border-black px-3">{row.no_invoice}</td>
               <td className="text-center border  border-black px-3">{row.nama_customer}</td>
               <td className="text-center border  border-black px-3">{row.alamat}</td>

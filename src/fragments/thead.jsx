@@ -1,10 +1,10 @@
 export function Thead({ columnPrintInvoice }) {
   return (
-    <thead>
+    <thead className="border-2 border-2-red" >
       <tr >
 
         {columnPrintInvoice && columnPrintInvoice.map((col, index) => {
-          return <th className="py-2 px-3 border-2 border-2-black" key={index}>{col}</th>
+          return <th className="py-2 px-3 border-l-3 border-l-3-black" key={index}>{col}</th>
         })}
       </tr>
     </thead>

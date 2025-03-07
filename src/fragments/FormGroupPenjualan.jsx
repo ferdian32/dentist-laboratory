@@ -5,13 +5,26 @@ import { __global__ } from "../__config__";
 import { __httpClient__ } from "../lib/http";
 const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }) => {
   const { setDataPenjualan, dataPenjualan, setObjx_021, objx_021 } = useContext(__global__);
+  const [nvc, setNvc] = useState([]);
   useEffect(() => {
     const get = async () => {
       await __httpClient__.get(import.meta.env.VITE_BASE_URL_BRG)
         .then((results) => {
           const json = results.data;
-          console.log(json);
           setObjx_021(json.data)
+        }).catch((err) => {
+          console.log(err)
+        });
+
+    };
+    get();
+  }, [])
+  useEffect(() => {
+    const get = async () => {
+      await __httpClient__.get(import.meta.env.VITE_BASE_URL_NVC)
+        .then((results) => {
+          const json = results.data;
+          setNvc(json.data)
         }).catch((err) => {
           console.log(err)
         });
@@ -26,11 +39,12 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
     }))
   }
   const kn_tl = objx_021.find((_) => _.nama_barang === formDataPenjualan.nama_barang);
+  const d = nvc.find((x) => x.no_invoice === formDataPenjualan.no_invoice);
   const obs_2xa = kn_tl ? kn_tl : 0
   const addData = () => {
     const { no_invoice, keterangan, nama_barang, qty } = formDataPenjualan;
     const data = {
-      id_invoice: obs_2xa.id_invoice,
+      id_invoice: d.id_invoice,
       no_invoice,
       keterangan,
       nama_barang,

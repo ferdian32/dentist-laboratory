@@ -51,7 +51,7 @@ export default function PrintInvoice() {
 
         <div className="grid grid-cols-2   p-5">
           <div>
-            <h1><strong>King</strong> Dental Laboratory</h1>
+            <h1><strong><span className="italic text-2xl">King</span></strong> Dental Laboratory</h1>
             <p>Jl. Marinir raya, Gg. Rejeki no.02 rt.02 rw.05, Perwira, Bekasi Utara, Bekasi Kota
               Phone/wa : 081 389 457 457
             </p>
@@ -66,30 +66,31 @@ export default function PrintInvoice() {
                 <p>{nvc.alamat}</p>
               </div>
             </div>
-            <div><strong>Order id</strong> : <span className="ml-16"> {nvc.order_id}</span></div>
+            <div><strong> {nvc.order_id}</strong></div>
           </div>
-          <div className="px-3 text-end ">
-            <ul className="" >
-              <li className="text-sm py-2">Tanggal Invoice  : <strong>{nvc.tgl_invoice ? new Date(nvc.tgl_invoice).toLocaleDateString() : 'tidak ada tanggal'}</strong>
+          <div className="px-20 text-end">
+            <ul>
+              <li className="text-sm py-2 flex items-center justify-between"><h3>Tanggal Invoice  : </h3><p className="text-md font-bold">{nvc.tgl_invoice ? new Date(nvc.tgl_invoice).toLocaleDateString() : 'tidak ada tanggal'}</p>
               </li>
-              <li className="text-sm py-2">
-                Tanggal Jatuh Tempo:
-                <strong>
+              <li className="text-sm py-2 flex items-center justify-between">
+                <h3>Tanggal Jatuh Tempo:</h3>
+                <p className="text-md font-bold">
                   {nvc.tgl_invoice
                     ? new Date(new Date(nvc.tgl_invoice).setDate(new Date(nvc.tgl_invoice).getDate() + 30)).toLocaleDateString()
                     : 'tidak ada tanggal'}
-                </strong>
+                </p>
               </li>
-              <li className="text-sm py-2">No Invoice  : <strong>{nvc.no_invoice}</strong>
+              <li className="text-sm py-2 flex items-center justify-between"><h3>No Invoice  : </h3><p className="text-md font-bold">{nvc.no_invoice}</p>
               </li>
 
             </ul>
           </div>
         </div >
-        <table className="w-full mt-3  border-2" >
+        <table className="w-full mt-5 border-2" >
           <Thead columnPrintInvoice={columnPrintInvoice}></Thead>
           <Tbody xyz={xyz} Sbt={Sbt} grndT={grndT} ></Tbody>
         </table>
+        <div className="text-center capitalize text-md"><h3>pembayaran transfer melalui bank BCA no. rek. 1490355924 a/n. TRIWANTO</h3></div>
       </div >
       <Button title="print invoice" className={`py-1 px-3 bg-black  text-slate-50 mt-3 rounded-sm cursor-pointer absolute no-print `} onClick={_of2xa}>
         Print Invoice
