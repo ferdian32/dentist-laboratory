@@ -6,21 +6,22 @@ export function Tbody({ xyz, Sbt, grndT }) {
   const { ongkir, setOngkir, diskon, setDiskon } = useContext(__global__);
   return (
     <tbody>
+
       {xyz && xyz.map((zyx, index) => {
         return (
 
-          <tr key={index}>
-            <td className="w-[50px] py-2 px-3 border-r-3  border-r-3-black text-center">{index + 1}</td>
-            <td className="py-2 px-3 border-r-2  border-r-2-black text-center">{zyx.keterangan}</td>
-            <td className="py-2 px-3 border-r-3  border-r-3-black text-center">{zyx.nama_barang}</td>
-            <td className="py-2 px-3 border-r-3  border-r-3-black text-center">{zyx.qty}</td>
-            <td className="py-2 px-3 border-r-3  border-r-3-black text-center">Rp {zyx.harga_satuan}</td>
-            <td className="py-2 px-3 border-r-2  border-r-2-black text-center">Rp {zyx.harga_bruto}</td>
+          <tr key={index} className={`${xyz.length === 1 ? "h-[100px]" : ""}`} >
+            <td className="w-[50px]px-3 border-r-3  border-r-3-black text-center">{index + 1}</td>
+            <td className="px-3 border-r-2 border-r-2-black text-center">{zyx.keterangan}</td>
+            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.nama_barang}</td>
+            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.qty}</td>
+            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.harga_satuan}</td>
+            <td className="px-3 border-r-2 border-r-2-black text-center">{zyx.harga_bruto}</td>
           </tr>
         )
       })}
-      <tr >
-        <td colSpan={5} className=" border-2 border-2-black relative" >
+      <tr  >
+        <td colSpan={5} className="border-2 border-2-black relative" >
           <div className="flex justify-between px-10 absolute top-0 w-full">
 
             <div>
@@ -35,7 +36,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
             <h3>Terlampir: </h3>
           </div>
         </td>
-        <td colSpan={2} className=" border-2 border-2-black ">
+        <td colSpan={2} className="border-2 border-2-black ">
           <div className="grid grid-cols-2">
             <div className="py-2 px-3 border-2 border-2-black">
               Subtotal
@@ -76,6 +77,6 @@ export function Tbody({ xyz, Sbt, grndT }) {
         </td>
       </tr>
 
-    </tbody>
+    </tbody >
   )
 }
