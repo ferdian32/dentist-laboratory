@@ -3,7 +3,7 @@ import Input from "../elements/input"
 import { __global__ } from "../__config__"
 
 export function Tbody({ xyz, Sbt, grndT }) {
-  const { ongkir, setOngkir, diskon, setDiskon} = useContext(__global__);
+  const { ongkir, setOngkir, diskon, setDiskon } = useContext(__global__);
   return (
     <tbody>
 
@@ -13,7 +13,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
           <tr key={index} className={`${xyz.length === 1 ? "h-[100px]" : ""}`} >
             <td className="w-[50px]px-3 border-r-3  border-r-3-black text-center">{index + 1}</td>
             <td className="w-[135px] px-3 border-r-3 border-r-3-black text-center">{zyx.keterangan}</td>
-            <td  className="w-[280px] px-3 border-r-3 border-r-3-black ">{zyx.nama_barang}</td>
+            <td className="w-[280px] px-3 border-r-3 border-r-3-black ">{zyx.nama_barang}</td>
             <td className=" px-3 border-r-3 border-r-3-black text-center">{zyx.qty}</td>
             <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.satuan}</td>
             <td className="w-[90px] px-3 border-r-3 border-r-3-black text-center">{zyx.harga_satuan}</td>
@@ -51,7 +51,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
               Ongkos Kirim
             </div>
             <div className="px-3 text-end">
-              <Input type="number" name="ongkir" id="ongkir" className=" text-end w-20 rounded-md px-3 outline-0" value={ongkir} onChange={(event) => setOngkir(event.target.value)}></Input>
+              <Input type="number" name="ongkir" id="ongkir" className="w-14 mt-2 rounded-md px-3 outline-0" value={ongkir} onChange={(event) => setOngkir(event.target.value)}></Input>
             </div>
 
           </div>
@@ -62,7 +62,7 @@ export function Tbody({ xyz, Sbt, grndT }) {
             <div className="px-3">
               <label htmlFor="diskon">
 
-                <Input type="number" name="diskon" className="w-20 text-end rounded-md py-1 px-3 outline-0" id="diskon" value={diskon} onChange={(event) => setDiskon(event.target.value)} />
+                <Input type="number" name="diskon" className="w-10  text-end rounded-md py-1 px-3 outline-0" id="diskon" value={diskon} onChange={(event) => setDiskon(event.target.value)} />
                 %
               </label>
             </div>
