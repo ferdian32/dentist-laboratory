@@ -19,7 +19,7 @@ export const dataTransaksi = [{
   },
   {
     name: "rekap penjualan",
-    path: "/rekap-penjualan",
+    path: "/rekapPenjualan",
   },
   {
     name: "Data Penjualan",
