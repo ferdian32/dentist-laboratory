@@ -48,6 +48,7 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
       no_invoice,
       keterangan,
       nama_barang,
+      satuan:obs_2xa.satuan,
       qty,
       harga_satuan: obs_2xa.harga_jual,
       harga_bruto: obs_2xa.harga_jual * qty
@@ -56,7 +57,7 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
     const newData = [...dataPenjualan, data];
     setDataPenjualan(newData);
     if (newData) {
-      setFormDataPenjualan({ no_invoice: "", keterangan: "", nama_barang: "", qty: 0, harga_satuan: 0, harga_bruto: 0 })
+      setFormDataPenjualan({ no_invoice: "", keterangan: "", nama_barang: "",satuan:"", qty: 0, harga_satuan: 0, harga_bruto: 0 })
     }
   };
 
@@ -109,6 +110,10 @@ const FormGroupPenjualan = ({ setFormDataPenjualan, formDataPenjualan, invoice }
               )
             })}
           </select>
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="nama_barang">Satuan</label>
+          <h3 className="border border-gray-500 rounded-sm px-3">{obs_2xa.satuan ? obs_2xa.satuan : "-"}</h3>
         </div>
         <div className="flex flex-col">
           <label htmlFor="qty">Quantity</label>

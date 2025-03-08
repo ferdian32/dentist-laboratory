@@ -3,7 +3,7 @@ import Input from "../elements/input"
 import { __global__ } from "../__config__"
 
 export function Tbody({ xyz, Sbt, grndT }) {
-  const { ongkir, setOngkir, diskon, setDiskon } = useContext(__global__);
+  const { ongkir, setOngkir, diskon, setDiskon} = useContext(__global__);
   return (
     <tbody>
 
@@ -12,10 +12,11 @@ export function Tbody({ xyz, Sbt, grndT }) {
 
           <tr key={index} className={`${xyz.length === 1 ? "h-[100px]" : ""}`} >
             <td className="w-[50px]px-3 border-r-3  border-r-3-black text-center">{index + 1}</td>
-            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.keterangan}</td>
-            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.nama_barang}</td>
-            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.qty}</td>
-            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.harga_satuan}</td>
+            <td className="w-[135px] px-3 border-r-3 border-r-3-black text-center">{zyx.keterangan}</td>
+            <td  className="w-[280px] px-3 border-r-3 border-r-3-black ">{zyx.nama_barang}</td>
+            <td className=" px-3 border-r-3 border-r-3-black text-center">{zyx.qty}</td>
+            <td className="px-3 border-r-3 border-r-3-black text-center">{zyx.satuan}</td>
+            <td className="w-[90px] px-3 border-r-3 border-r-3-black text-center">{zyx.harga_satuan}</td>
             <td className="px-3 border-r-2 border-r-2-black text-center">{zyx.harga_bruto}</td>
           </tr>
         )

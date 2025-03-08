@@ -23,7 +23,7 @@ const FormGroupInvoice = ({ setFormData }) => {
         type="text"
         name="nama_customer"
         id="nama_customer"
-        placeholder="Masukan Nama Customer"
+        placeholder="Masukan Nama Doctor"
 
       />
       <input

@@ -30,6 +30,7 @@ const AddDataPenjualan = () => {
                   {'{'}
                   <div >No_invoice : {item.no_invoice}</div>
                   <div > nama_barang: {item.nama_barang}</div>
+                  <div > Satuan: {item.satuan}</div>
                   <div >Quantity: {item.qty}</div>
                   <div >Harga Satuan: {item.harga_satuan}</div>
                   <div >Harga Bruto: {item.harga_bruto}</div>

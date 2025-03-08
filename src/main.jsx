@@ -11,6 +11,7 @@ import AddDataPenjualan from './pages/addDataPenjualan.jsx';
 import EditDataBarang from './pages/editDataBarang.jsx';
 import RekapPenjualan from './pages/rekapPenjualan.jsx';
 import PrintInvoice from './pages/printInvoice.jsx';
+import PrintRekap from './pages/printRekap.jsx';
 const browserRouter = createBrowserRouter([
   {
     path: '/',
@@ -41,9 +42,14 @@ const browserRouter = createBrowserRouter([
     element: <PrintInvoice></PrintInvoice>
   },
   {
+    path: '/printRekap/:nama_customer',
+    element: <PrintRekap></PrintRekap>
+  },
+  {
     path: '/editDataInvoice/:id_invoice',
     element: <EditDataInvoice></EditDataInvoice>
-  }
+  },
+
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>

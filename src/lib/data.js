@@ -1,6 +1,6 @@
-export const columnInvoice = ['tgl_invoice', 'no_invoice', 'nama customer', 'alamat', 'pasien', 'order id', 'keterangan', 'nama barang', 'qty', 'harga satuan', 'harga bruto', 'net invoice', 'actions'];
+export const columnInvoice = ['tgl_invoice', 'no_invoice', 'nama doctor', 'alamat', 'pasien', 'order id', 'keterangan', 'nama barang', 'qty', 'harga satuan', 'harga bruto', 'net invoice', 'actions'];
 
-export const columnPrintInvoice = ['no', 'Gigi yang dibuat', 'keterangan', 'jml', 'satuan', 'harga netto']
+export const columnPrintInvoice = ['no', 'Gigi yang dibuat', 'keterangan', 'jml', 'satuan', 'harga', 'harga netto']
 export const dataTransaksi = [{
     name: "master item",
     path: "/master-item",
@@ -28,7 +28,7 @@ export const dataTransaksi = [{
 ];
 export const column = ['no', 'nama barang', 'kode item', 'satuan', 'harga jual', 'actions'];
 
-export const columnRekap = ['no', 'tgl_invoice', 'No Invoice', 'Nama Customer', 'Alamat', 'Pasien', 'Grand Total'];
+export const columnRekap = ['no', 'tgl_invoice', 'No Invoice', 'Nama Doctor', 'Alamat', 'Pasien', 'Grand Total', 'Actions'];
 export const nax03_ = [{
     name: 'Home',
     path: '/'
@@ -45,4 +45,6 @@ export const nax03_ = [{
     name: 'Rekap',
     path: '/rekapPenjualan'
   }
-]
+];
+
+export const _apsx2 = ['Alamat', 'Pasien', 'Tanggal', 'No invoice', 'tagihan']

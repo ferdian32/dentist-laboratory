@@ -58,7 +58,7 @@ export default function PrintInvoice() {
             </p>
           </div>
           <div className="grid grid-cols-2">
-            <div className=" max-w-[260px]">
+            <div className=" max-w-[320px]">
               <h6><strong>Kepada:</strong></h6>
               <div className="flex justify-between items-center">
                 <div className="leading-6">
